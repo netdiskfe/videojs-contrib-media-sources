@@ -3,6 +3,10 @@
   "version": "3.2.0",
   "description": "A Media Source Extensions plugin for video.js",
   "main": "es5/videojs-contrib-media-sources.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:videojs/videojs-contrib-media-sources.git"
+  },
   "scripts": {
     "prebuild": "npm run clean",
     "build": "npm-run-all -p build:*",
@@ -71,8 +75,6 @@
   ],
   "dependencies": {
     "global": "^4.3.0",
-    "mux.js": "^2.3.0",
-    "video.js": "^5.10.1",
     "webworkify": "1.0.2"
   },
   "devDependencies": {
