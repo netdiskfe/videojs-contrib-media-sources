@@ -107,8 +107,9 @@ class MessageHandlers {
    */
   setTimestampOffset(data) {
     let timestampOffset = data.timestampOffset || 0;
+    let duration = data.duration || 0;
 
-    this.transmuxer.setBaseMediaDecodeTime(Math.round(timestampOffset * 90000));
+    this.transmuxer.setBaseMediaDecodeTime(Math.round(timestampOffset * 90000), Math.round(duration * 90000));
   }
 
   /**

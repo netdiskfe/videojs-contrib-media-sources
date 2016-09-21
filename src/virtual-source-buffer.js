@@ -75,7 +75,8 @@ export default class VirtualSourceBuffer extends videojs.EventTarget {
           // the desired timestampOffset for the next segment
           this.transmuxer_.postMessage({
             action: 'setTimestampOffset',
-            timestampOffset: val
+            timestampOffset: val,
+            duration: this.duration
           });
         }
       }
