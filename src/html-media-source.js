@@ -212,6 +212,9 @@ export default class HtmlMediaSource extends videojs.EventTarget {
     let error;
 
     if (this.duration !== Infinity) {
+      if (isNaN(this.duration)) {
+        return;
+      }
       error = new Error('MediaSource.addSeekableRange() can only be invoked ' +
                         'when the duration is Infinity');
       error.name = 'InvalidStateError';
