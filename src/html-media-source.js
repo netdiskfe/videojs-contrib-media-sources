@@ -210,11 +210,9 @@ export default class HtmlMediaSource extends videojs.EventTarget {
    */
   addSeekableRange_(start, end) {
     let error;
+    let throwError = false;
 
-    if (this.duration !== Infinity) {
-      if (isNaN(this.duration)) {
-        return;
-      }
+    if (this.duration !== Infinity && throwError) {
       error = new Error('MediaSource.addSeekableRange() can only be invoked ' +
                         'when the duration is Infinity');
       error.name = 'InvalidStateError';
@@ -222,8 +220,9 @@ export default class HtmlMediaSource extends videojs.EventTarget {
       throw error;
     }
 
-    if (end > this.nativeMediaSource_.duration ||
-        isNaN(this.nativeMediaSource_.duration)) {
+    if ((end > this.nativeMediaSource_.duration ||
+          isNaN(this.nativeMediaSource_.duration)) &&
+          this.nativeMediaSource_.readyState === 'open') {
       this.nativeMediaSource_.duration = end;
     }
   }
