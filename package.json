@@ -74,6 +74,7 @@
     "test/"
   ],
   "dependencies": {
+    "mux.js": "https://github.com/netdiskfe/mux.js.git",
     "global": "^4.3.0",
     "webworkify": "1.0.2"
   },
